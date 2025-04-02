@@ -1,6 +1,6 @@
 # David Wahenya - Professional Portfolio
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR-BADGE-ID/deploy-status)](https://app.netlify.com/sites/portfolio-519f37/deploys)  
+[![Netlify Status](https://portfolio-519f37.netlify.app/ )
 *Modern portfolio showcasing my skills and projects*
 
 ## 🌐 Live Deployment

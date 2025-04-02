@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Wahenya | Computer Science Student</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Chatbot Button -->
+    <div class="chatbot-btn" id="chatbotBtn">
+        <img src="assets/chatbot-icon.png" alt="Chatbot">
+    </div>
+
+    <!-- Chatbot Interface -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3>DevBot Assistant</h3>
+            <button class="close-chatbot" id="closeChatbot">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>Hello! I'm DevBot, David's portfolio assistant. How can I help you today?</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">DW</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1><span class="hero-highlight">Innovative</span> Developer & <span class="hero-highlight">Tech</span> Enthusiast</h1>
+                <p class="hero-subtitle">Computer Science|My mission is to leverage Tech+AI to solve real-world problems and drive innovation.Aspiring AI Engineer|Passionate About Machine Learning, Data Science & Cybersecurity | Interests in NLP & Computer Vision.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary">View My Projects</a>
+                    <a href="assets/CV (1).pdf" download class="btn btn-secondary">Download CV</a>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <span>Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    
+                    <img src="assets/profile.jpg" alt="David Wahenya">
+                </div>
+                <div class="about-text">
+                    <h3>I'm David Wahenya, a passionate Computer Science student</h3>
+                    <p>Currently in my third year at University of Embu, I'm specializing in software development, AI, and networking. My goal is to secure an industrial attachment where I can apply my skills in real-world projects while continuing to learn and grow.</p>
+                    <p>When I'm not coding, you'll find me reading computer science literature or participating in tech competitions. Books like <em>Introduction to Algorithms</em> and <em>Clean Code</em> have greatly influenced my approach to problem-solving.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Major Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Certifications</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <span>Java</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <span>C++</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <span>HTML</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <span>CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <span>Flask</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Other Technologies</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-android"></i>
+                            </div>
+                            <span>Android</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <span>Networking</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <span>AI/ML</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2026</div>
+                    <div class="timeline-content">
+                        <h3>Bachelor of Science in Computer Science</h3>
+                        <p class="institution">University of Embu</p>
+                        <p>Specializing in Software Development, Artificial Intelligence, and Networking</p>
+                        <ul class="education-features">
+                            <li>Expected graduation: April 2026</li>
+                            <li>Participated in multiple tech competitions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2018 - 2022</div>
+                    <div class="timeline-content">
+                        <h3>Kenya Certificate of Secondary Education</h3>
+                        <p class="institution">St. Peter's Moi's Bridge Secondary School</p>
+                        <p>Grade: B Minus</p>
+                        <ul class="education-features">
+                            <li>Developed interest in computer science</li>
+                            <li>Participated in science and technology clubs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="assets/project1.jpg" alt="Maize Disease Detection App">
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Maize Disease Detection App</h3>
+                        <p class="project-description">AI-powered mobile app for detecting maize diseases from images using TensorFlow.</p>
+                        <div class="project-tags">
+                            <span>AI/ML</span>
+                            <span>Android</span>
+                            <span>TensorFlow</span>
+                        </div>
+                        <div class="project-award">
+                            <i class="fas fa-trophy"></i>
+                            <span>Mozilla Responsible Computing Challenge 2024 Winner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="assets/project2.jpg" alt="Web Application">
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Records Management System</h3>
+                        <p class="project-description">Web application for creating, updating, and viewing records with Flask and MySQL.</p>
+                        <div class="project-tags">
+                            <span>Flask</span>
+                            <span>Python</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="assets/project3.jpg" alt="Networking Project">
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Network Setup Project</h3>
+                        <p class="project-description">Configured small-scale network with LAN setup and troubleshooting.</p>
+                        <div class="project-tags">
+                            <span>Networking</span>
+                            <span>TCP/IP</span>
+                            <span>LAN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <p>I'm currently seeking industrial attachment opportunities in software development, AI, or networking.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>davidwaihenya@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+254 792 477 722</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>David Waihenya</span>
+                        </div>
+                    </div>
+                    <div class="referees">
+                        <h4>Referees</h4>
+                        <p><strong>Dr. David Muchangi Mugo</strong><br>
+                        Senior Lecturer, University of Embu<br>
+                        +254 719 574 060</p>
+                        
+                        <p><strong>Mr. Albert Amutete</strong><br>
+                        Former Deputy Principal<br>
+                        +254 722 506 451</p>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">DW</div>
+            <p>© 2025 David Wahenya. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

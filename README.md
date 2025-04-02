@@ -1,21 +1,25 @@
 # David Wahenya - Professional Portfolio
 
-[![Netlify Status](https://portfolio-519f37.netlify.app/ )
-*Modern portfolio showcasing my skills and projects*
+![Portfolio Screenshot](./assets/preview.png)  
+*A modern showcase of my skills and projects*
 
-## 🌐 Live Deployment
-**Main URL**: https://portfolio-519f37.netlify.app/  
-**GitHub Pages**: https://davidwahenya.github.io/portfolio (backup)
+## 🌟 About This Project
 
-![Portfolio Preview](./assets/preview.png)
+This responsive portfolio website highlights my:
+- Technical skills in programming and web development
+- Academic background at University of Embu
+- Award-winning projects (including Mozilla Responsible Computing Challenge 2024)
+- Professional objectives for industrial attachment
 
 ## 🚀 Key Features
-- **AI Chatbot Assistant** - Answers questions about my experience
-- **Responsive Design** - Mobile-first approach with CSS Grid/Flexbox
-- **Project Showcase** - 3 featured projects with technology tags
-- **Interactive Elements** - Smooth animations and hover effects
-- **Contact System** - Form with referees section
 
+| Feature | Description |
+|---------|-------------|
+| **Interactive Chatbot** | AI assistant answering questions about my experience |
+| **Project Gallery** | Showcase of work with technology tags |
+| **Responsive Design** | Perfect display on all devices |
+| **Downloadable CV** | One-click access to my resume |
+| **Contact Form** | Direct communication channel |
 ## 🛠 Technical Stack
 | Category | Technologies |
 |----------|--------------|

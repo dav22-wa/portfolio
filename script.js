@@ -26,7 +26,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form Submission
+// Local Database Implementation
+class PortfolioDB {
+    constructor() {
+        this.STORAGE_KEY = 'portfolio_data_v1';
+        this.data = this.loadData();
+    }
+
+    loadData() {
+        const savedData = localStorage.getItem(this.STORAGE_KEY);
+        return savedData ? JSON.parse(savedData) : {
+            messages: [],
+            pageViews: 0,
+            userSettings: {}
+        };
+    }
+
+    saveData() {
+        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.data));
+    }
+
+    saveMessage(name, email, message) {
+        this.data.messages.push({
+            id: Date.now(),
+            name,
+            email,
+            message,
+            date: new Date().toISOString(),
+            read: false
+        });
+        this.saveData();
+    }
+
+    getMessages() {
+        return this.data.messages;
+    }
+
+    markMessageRead(id) {
+        const message = this.data.messages.find(msg => msg.id === id);
+        if (message) {
+            message.read = true;
+            this.saveData();
+        }
+    }
+
+    trackView() {
+        this.data.pageViews++;
+        this.saveData();
+    }
+}
+
+const db = new PortfolioDB();
+
+// Enhanced Form Submission
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -41,10 +93,17 @@ if (contactForm) {
             return;
         }
         
-        // In a real app, you would send this to a server
-        console.log('Form submitted:', { name, email, message });
+        // Save to local database
+        db.saveMessage(name, email, message);
+        
+        // Optional: For actual submission, you would add:
+        // await sendToServer(name, email, message);
+        
         alert('Thank you for your message! I will get back to you soon.');
         this.reset();
+        
+        // Log all messages (for debugging)
+        console.log('All saved messages:', db.getMessages());
     });
 }
 
@@ -71,11 +130,16 @@ document.querySelectorAll('.section').forEach(section => {
     section.style.transition = 'all 0.6s ease';
 });
 
-// Trigger initial reveal
-window.addEventListener('load', reveal);
+// Track page view on load
+window.addEventListener('load', () => {
+    reveal();
+    db.trackView();
+    console.log(`Total page views: ${db.data.pageViews}`);
+});
+
 window.addEventListener('scroll', reveal);
 
-// Chatbot Functionality
+// Enhanced Chatbot Functionality
 const chatbotBtn = document.getElementById('chatbotBtn');
 const chatbotContainer = document.getElementById('chatbotContainer');
 const closeChatbot = document.getElementById('closeChatbot');
@@ -86,49 +150,49 @@ const sendMessageBtn = document.getElementById('sendMessage');
 // Toggle chatbot visibility
 chatbotBtn.addEventListener('click', () => {
     chatbotContainer.classList.toggle('active');
+    if (chatbotContainer.classList.contains('active')) {
+        chatbotInput.focus();
+    }
 });
 
 closeChatbot.addEventListener('click', () => {
     chatbotContainer.classList.remove('active');
 });
 
-// Chatbot responses
+// Chatbot responses with local data integration
 const botResponses = [
     "I can tell you more about David's skills and experience. What would you like to know?",
-    "David has worked on projects including an AI-powered maize disease detection app. Would you like details on a specific project?",
-    "For industrial attachment inquiries, you can use the contact form or email directly at davidwaihenya@gmail.com",
-    "David is proficient in Python, Java, and web technologies like Flask. Need more specific information?",
-    "The portfolio showcases projects including the award-winning Maize Disease Detection App!",
-    "David is currently seeking industrial attachment opportunities in software development or AI.",
-    "You can download the CV from the website for more detailed information."
+    "David has worked on projects including an AI-powered maize disease detection app. Would you like details?",
+    `This page has been viewed ${db.data.pageViews} times.`,
+    "For inquiries, email davidwaihenya@gmail.com or use the contact form.",
+    "David specializes in Python, Java, and web technologies like Flask.",
+    "The portfolio showcases award-winning projects!",
+    "David seeks industrial attachment opportunities in software development or AI."
 ];
 
 const commonQuestions = {
-    "skills": "David specializes in Python and Java programming, with experience in web development (Flask, HTML/CSS), networking, and AI/ML (TensorFlow).",
-    "experience": "David is a third-year Computer Science student with hands-on project experience in AI, web development, and networking.",
-    "projects": "Featured projects include an AI-powered maize disease detection app (award-winning), a records management web app, and a networking setup project.",
-    "contact": "You can reach David through the contact form or directly at davidwaihenya@gmail.com or +254 792 477 722",
-    "attachment": "David is seeking industrial attachment opportunities in software development, AI, or networking.",
-    "education": "David is pursuing a Bachelor's in Computer Science at University of Embu (expected 2026)."
+    "skills": "David specializes in: Python, Java, Flask, HTML/CSS, Networking, and AI/ML (TensorFlow).",
+    "experience": "Third-year Computer Science student with hands-on project experience in AI and web development.",
+    "projects": "Featured projects: 1) AI maize disease detection (award-winning), 2) Records management web app, 3) Networking setup.",
+    "contact": "Contact: davidwaihenya@gmail.com | +254 792 477 722 | LinkedIn: David Waihenya",
+    "attachment": "Currently seeking industrial attachment in: Software Development, AI, or Networking.",
+    "education": "Bachelor's in Computer Science at University of Embu (expected 2026).",
+    "views": `This portfolio has been viewed ${db.data.pageViews} times.`
 };
 
-// Send message function
 function sendMessage() {
     const message = chatbotInput.value.trim();
     if (message === '') return;
     
-    // Add user message
     addMessage(message, 'user');
     chatbotInput.value = '';
     
-    // Bot response
     setTimeout(() => {
         let response = getBotResponse(message);
         addMessage(response, 'bot');
     }, 800);
 }
 
-// Add message to chat
 function addMessage(text, sender) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add(`${sender}-message`);
@@ -138,12 +202,9 @@ function addMessage(text, sender) {
     
     messageDiv.appendChild(messageText);
     chatbotMessages.appendChild(messageDiv);
-    
-    // Scroll to bottom
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 }
 
-// Get bot response
 function getBotResponse(message) {
     const lowerMessage = message.toLowerCase();
     
@@ -154,6 +215,14 @@ function getBotResponse(message) {
         }
     }
     
+    // Check for local data
+    if (lowerMessage.includes('message') || lowerMessage.includes('contact')) {
+        const messages = db.getMessages();
+        if (messages.length > 0) {
+            return `You've sent ${messages.length} messages through this portfolio.`;
+        }
+    }
+    
     // Default random response
     return botResponses[Math.floor(Math.random() * botResponses.length)];
 }
@@ -161,14 +230,18 @@ function getBotResponse(message) {
 // Event listeners for chatbot
 sendMessageBtn.addEventListener('click', sendMessage);
 chatbotInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        sendMessage();
-    }
+    if (e.key === 'Enter') sendMessage();
 });
 
 // Initial bot message
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        addMessage("Hello! I'm DevBot, David's portfolio assistant. How can I help you today?", 'bot');
-    }, 1000);
+setTimeout(() => {
+    addMessage("Hello! I'm DevBot, David's portfolio assistant. Try asking about skills, projects, or experience.", 'bot');
+}, 1000);
+
+// Admin Panel Trigger (for debugging)
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 'd') { // Ctrl+D shortcut
+        console.log('Database contents:', db.data);
+        alert(`Admin: ${db.data.messages.length} messages stored`);
+    }
 });

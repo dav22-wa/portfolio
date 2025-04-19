@@ -3,7 +3,7 @@
 [![Live Demo](https://img.shields.io/badge/Netlify-Live%20Demo-brightgreen)](https://portfolio-519f37.netlify.app/)
 ![GitHub last commit](https://img.shields.io/github/last-commit/davidwahenya/portfolio)
 
-![Portfolio Preview](./assets/preview.png)
+![Portfolio Preview](assets/preview.png)
 
 ## 🌟 Features
 

@@ -35,6 +35,7 @@
   "pageViews": 42,
   "userSettings": {}
 }
+
 🧩 Code Structure
 
 portfolio/
@@ -48,7 +49,12 @@ portfolio/
 │   ├── profile.jpg     # Professional photo
 │   └── chatbot-icon.png
 └── README.md           # This file
-🚀 Installation
+
+
+
+
+
+## 🚀 Installation
 
 
 # Clone repository
@@ -106,5 +112,4 @@ Create an admin dashboard
 
 David Wahenya
 📧 davidwaihenya@gmail.com
-📞 +254 792 477 722
 🔗 LinkedIn Profile

@@ -27,6 +27,17 @@ navItems.forEach(item => {
     });
 });
 
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navLinks && navLinks.classList.contains('active')) {
+        if (!e.target.closest('.nav-links') && !e.target.closest('.burger')) {
+            navLinks.classList.remove('active');
+            burger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+});
+
 // Smooth Scrolling with offset for fixed header
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
